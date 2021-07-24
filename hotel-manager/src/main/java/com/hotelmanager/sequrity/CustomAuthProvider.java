@@ -26,7 +26,6 @@ public class CustomAuthProvider implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         User user = userService.getUser(authentication.getName());
-        System.out.println(user);
         if (authentication.getName().equalsIgnoreCase(user.getEmail()) && authentication.getCredentials().equals(user.getPassword())) {
             return new UsernamePasswordAuthenticationToken(user, null, Collections.singleton(new SimpleGrantedAuthority("ROLE_" + user.getRoleId())));
 
