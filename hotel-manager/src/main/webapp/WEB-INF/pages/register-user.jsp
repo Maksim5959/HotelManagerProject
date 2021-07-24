@@ -8,7 +8,7 @@
 </head>
 <body>
 <div>
-        <form modelAttribute="user" action="${pageContext.request.contextPath}/add-user" method="post">
+        <form modelAttribute="userJSP" action="${pageContext.request.contextPath}/add-user" method="post">
                 <input  type="email"  placeholder="Email" oninput="this.className = ''" name="email"/>
                 <input  type="text"  placeholder="Login" oninput="this.className = ''" name="login"/>
                 <input  type="password"  placeholder="Password" oninput="this.className = ''" name="password"/>

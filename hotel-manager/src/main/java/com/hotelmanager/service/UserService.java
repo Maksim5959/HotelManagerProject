@@ -19,8 +19,8 @@ public class UserService {
         return userDao.addUser(user);
     }
 
-    public User getUser (User user) {
-        return userDao.getUser(user.getEmail(), user.getPassword());
+    public User getUser (String email) {
+        return userDao.getUser(email);
     }
 
     public boolean deleteUser (User user) {
@@ -31,7 +31,7 @@ public class UserService {
         return userDao.updateUser(user);
     }
 
-    public Long getId (User user) {
-        return userDao.getId(user.getEmail(), user.getPassword());
+    public Long checkUser (User user) {
+        return userDao.checkUser(user);
     }
 }

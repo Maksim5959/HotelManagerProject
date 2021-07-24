@@ -1191,13 +1191,13 @@ SELECT|sys.sys_config
       <DataType>varchar(45)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="347" parent="292" name="roles_id">
+    <column id="347" parent="292" name="role_id">
       <Position>7</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <index id="348" parent="292" name="fk_users_roles_idx">
-      <ColNames>roles_id</ColNames>
+      <ColNames>role_id</ColNames>
       <Type>btree</Type>
     </index>
     <key id="349" parent="292" name="PRIMARY">
@@ -1206,7 +1206,7 @@ SELECT|sys.sys_config
       <Primary>1</Primary>
     </key>
     <foreign-key id="350" parent="292" name="fk_users_roles">
-      <ColNames>roles_id</ColNames>
+      <ColNames>role_id</ColNames>
       <RefTableName>roles</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>

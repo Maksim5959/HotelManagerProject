@@ -11,22 +11,13 @@
 
     <form modelAttribute="userJSP" action="${pageContext.request.contextPath}/check-user " method="post" >
 
-    <h1>Введите email и пароль:</h1>
+    <h1>Введите текущие email и пароль:</h1>
 
         <input  type="email"  placeholder="Email" oninput="this.className = ''" name="email"/>
         <input  type="password"  placeholder="Password" oninput="this.className = ''" name="password"/>
-
-    <h1>Введите новые данные пользователя:</h1>
-
-
-        <input  type="email"  placeholder="Email" oninput="this.className = ''" name="email"/>
-        <input  type="text"  placeholder="Login" oninput="this.className = ''" name="login"/>
-        <input  type="password"  placeholder="Password" oninput="this.className = ''" name="password"/>
-        <input  type="text"  placeholder="First name" oninput="this.className = ''" name="firstName"/>
-        <input  type="text"  placeholder="Last name" oninput="this.className = ''" name="lastName"/>
-        
-        <button >Редактировать</button>
+        <button>Продолжить</button>
     </form>
+
     <form modelAttribute="user" action="${pageContext.request.contextPath}/" method="get">
         <button>Выйти на главную страницу</button>
     </form>

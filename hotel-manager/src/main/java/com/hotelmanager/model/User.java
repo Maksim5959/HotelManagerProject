@@ -12,7 +12,7 @@ public class User {
 
     private Long id;
 
-    private  String email;
+    private String email;
 
     private String login;
 
@@ -21,5 +21,7 @@ public class User {
     private String firstName;
 
     private String lastName;
+
+    private Integer roleId;
 
 }

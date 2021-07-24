@@ -18,44 +18,51 @@ public class UserDao {
     }
 
     public boolean addUser (User user) {
-        Long id = null;
-        id = jdbcTemplate.queryForObject("SELECT id FROM users where users.login = ? and users.email = ?  ",
-                Long.class, user.getLogin(), user.getEmail());
-        if (id != null){
+        Long id = checkUser(user);
+            if (id == null) {
+                return jdbcTemplate.update("INSERT INTO users (email, login, password, first_name,last_name,roles_id) " +
+                        "VALUES (?,?,?,?,?,?)", user.getEmail(), user.getLogin(),user.getPassword(),user.getFirstName(),user.getLastName(),1) > 0;
+            }
             return false;
-        }
-        return jdbcTemplate.update("INSERT INTO users (email, login, password, first_name,last_name,roles_id) " +
-                "VALUES (?,?,?,?,?,?)", user.getEmail(), user.getLogin(),user.getPassword(),user.getFirstName(),user.getLastName(),1) > 0;
     }
 
-    public User getUser (String email, String password) {
-        return jdbcTemplate.queryForObject("SELECT first_name, last_name, email FROM users where users.email = ? and users.password = ?   ",
-                new BeanPropertyRowMapper<>(User.class), email, password);
+    public User getUser (String email) {
+       User user = new User();
+        try {
+            user = jdbcTemplate.queryForObject("SELECT first_name, last_name, email, password, role_id FROM users where users.email = ?  ",
+                    new BeanPropertyRowMapper<>(User.class), email);
+        } catch (Exception ignore){
+            return null;
+        }
+        return user;
     }
 
     public boolean deleteUser (User user) {
         return jdbcTemplate.update("DELETE from users where email = ? and password = ?", user.getEmail(), user.getPassword()) > 0;
     }
 
-    public Long getId (String email, String password) {
-        Long id = jdbcTemplate.queryForObject("SELECT id FROM users where users.email = ? and users.password = ?  ",
-                Long.class, email, password);
-        if (id != null){
-            return id;
-        } else {
-            return null;
-        }
-
-    }
-
     public boolean updateUser (User user) {
-        Long id = null;
-        id = jdbcTemplate.queryForObject("SELECT id FROM users where users.login = ? and users.email = ?  ",
-                Long.class, user.getLogin(), user.getEmail());
-        if (id != null){
+        Long id = checkUser(user);
+        if (id == user.getId() || id == null){
+            return jdbcTemplate.update("UPDATE users SET email = ?, login= ?, password= ?, first_name= ?,last_name= ?" +
+                            " where users.id = ? "
+                    ,user.getEmail(), user.getLogin(), user.getPassword(), user.getFirstName(), user.getLastName(), user.getId()) > 0;
+        } else {
             return false;
         }
-        return jdbcTemplate.update("UPDATE users SET (email, login, password, first_name,last_name,roles_id) " +
-                "VALUES (?,?,?,?,?,?)", user.getEmail(), user.getLogin(),user.getPassword(),user.getFirstName(),user.getLastName(),1) > 0;
+    }
+
+    public Long checkUser (User user) {
+        Long id = null;
+        try {
+            id = jdbcTemplate.queryForObject("SELECT id FROM users where users.email = ?",
+                    Long.class, user.getEmail());
+        }catch (Exception ignored){
+        } try {
+            id = jdbcTemplate.queryForObject("SELECT id FROM users where users.login = ? ",
+                    Long.class, user.getLogin());
+        } catch (Exception ignored) {
+        }
+        return id;
     }
 }
