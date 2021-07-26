@@ -1,8 +1,7 @@
 package com.hotelmanager.sequrity;
 
 import com.hotelmanager.model.User;
-import com.hotelmanager.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.hotelmanager.repository.UserDao;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -15,22 +14,21 @@ import java.util.Collections;
 @Component
 public class CustomAuthProvider implements AuthenticationProvider {
 
-    private final UserService userService;
+    private final UserDao userDao;
 
 
-    @Autowired
-    public CustomAuthProvider(UserService userService) {
-        this.userService = userService;
+    public CustomAuthProvider(UserDao userDao) {
+        this.userDao = userDao;
     }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        User user = userService.getUser(authentication.getName());
+        User user = userDao.getUser(authentication.getName());
         if (authentication.getName().equalsIgnoreCase(user.getEmail()) && authentication.getCredentials().equals(user.getPassword())) {
             return new UsernamePasswordAuthenticationToken(user, null, Collections.singleton(new SimpleGrantedAuthority("ROLE_" + user.getRoleId())));
 
         }
-       return new UsernamePasswordAuthenticationToken(user, null);
+        return new UsernamePasswordAuthenticationToken(user, null);
     }
 
     @Override

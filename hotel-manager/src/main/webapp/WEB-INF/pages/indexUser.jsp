@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 </head>
 <body>
@@ -22,7 +22,7 @@
 <div align="center">
     <input name="city" type="text" placeholder="Куда вы хотите поехать?">
     <input name="check-in" type="date" placeholder="Дата заезда">
-    <input name="check-out" type="date"  placeholder="Дата выезда">
+    <input name="check-out" type="date" placeholder="Дата выезда">
 
     <select name="adult">
         <option value="">Количество взрослых</option>

@@ -4,7 +4,9 @@ package com.hotelmanager.controller;
 import com.hotelmanager.model.User;
 import com.hotelmanager.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -18,14 +20,14 @@ public class HotelManagerController {
         this.userService = userService;
     }
 
-    @GetMapping (value = "/")
+    @GetMapping(value = "/")
     public ModelAndView homePage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("index");
         return modelAndView;
     }
 
-    @GetMapping (value = "/user")
+    @GetMapping(value = "/user")
     public ModelAndView userHomePage() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("indexUser");
@@ -57,39 +59,39 @@ public class HotelManagerController {
     }
 
     @PostMapping(value = "/add-user")
-    public ModelAndView addUser(@ModelAttribute("userJSP") User user)  {
+    public ModelAndView addUser(@ModelAttribute("userJSP") User user) {
         ModelAndView modelAndView = new ModelAndView();
-        if(this.userService.addUser(user)){
+        if (this.userService.addUser(user)) {
             modelAndView.setViewName("done-register");
-        }else {
+        } else {
             modelAndView.setViewName("not-add-user");
         }
         modelAndView.addObject("userJSP", user);
         return modelAndView;
     }
 
-    @PostMapping (value = "/user-page")
-    public ModelAndView getUser (@ModelAttribute ("userJSP") User user) {
+    @PostMapping(value = "/user-page")
+    public ModelAndView getUser(@ModelAttribute("userJSP") User user) {
         ModelAndView modelAndView = new ModelAndView();
-        User user1 = userService.getUser(user.getEmail());
+        User user1 = userService.getUser(user);
         if (user1 == null) {
-            modelAndView.setViewName ("not-register");
+            modelAndView.setViewName("not-register");
         }
         modelAndView.addObject("userJSP", user1);
         return modelAndView;
     }
 
-    @GetMapping (value = "/delete-user")
-    public ModelAndView deleteUser (@ModelAttribute ("UserJSP") User user){
-        ModelAndView modelAndView =  new ModelAndView();
+    @GetMapping(value = "/delete-user")
+    public ModelAndView deleteUser(@ModelAttribute("UserJSP") User user) {
+        ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("userJSP", user);
         return modelAndView;
     }
 
-    @PostMapping (value = "/delete-done")
-    public ModelAndView deleteDone (@ModelAttribute ("UserJSP") User user){
-        ModelAndView modelAndView =  new ModelAndView();
-        if(userService.deleteUser(user)){
+    @PostMapping(value = "/delete-done")
+    public ModelAndView deleteDone(@ModelAttribute("UserJSP") User user) {
+        ModelAndView modelAndView = new ModelAndView();
+        if (userService.deleteUser(user)) {
             modelAndView.setViewName("delete-done");
         } else {
             modelAndView.setViewName("index");
@@ -99,12 +101,12 @@ public class HotelManagerController {
     }
 
     @PostMapping(value = "/check-user")
-    public ModelAndView checkUser(@ModelAttribute("userJSP") User user)  {
+    public ModelAndView checkUser(@ModelAttribute("userJSP") User user) {
         ModelAndView modelAndView = new ModelAndView();
         this.userId = this.userService.checkUser(user);
-        if(userId != null){
+        if (userId != null) {
             modelAndView.setViewName("two-update-user");
-        }else {
+        } else {
             modelAndView.setViewName("not-register");
         }
         modelAndView.addObject("userJSP", user);
@@ -112,12 +114,12 @@ public class HotelManagerController {
     }
 
     @PostMapping(value = "/add-update-user")
-    public ModelAndView addUpdateUser(@ModelAttribute("userJSP") User user)  {
+    public ModelAndView addUpdateUser(@ModelAttribute("userJSP") User user) {
         ModelAndView modelAndView = new ModelAndView();
         user.setId(userId);
-        if(userService.updateUser(user)){
+        if (userService.updateUser(user)) {
             modelAndView.setViewName("done-update");
-        }else {
+        } else {
             modelAndView.setViewName("not-update-user");
         }
         modelAndView.addObject("userJSP", user);

@@ -2,12 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 
 </head>
 <body>
-<div style="background-color: #ee5a6f" >Такой login или email уже существуют.</div>
+<div style="background-color: #ee5a6f">Такой login или email уже существуют.</div>
 <form modelAttribute="user" action="${pageContext.request.contextPath}/update-user" method="get">
     <button>Попробовать еще раз</button>
 </form>

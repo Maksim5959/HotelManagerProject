@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
 
 
@@ -19,7 +19,7 @@
     <button>Удалить</button>
 </form>
 <form modelAttribute="user" action="${pageContext.request.contextPath}/" method="get">
-<button>Выйти на главную страницу</button>
+    <button>Выйти на главную страницу</button>
 </form>
 </body>
 </html>

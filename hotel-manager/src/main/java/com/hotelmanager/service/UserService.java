@@ -15,23 +15,27 @@ public class UserService {
         this.userDao = userDao;
     }
 
-    public boolean addUser (User user) {
+    public boolean addUser(User user) {
         return userDao.addUser(user);
     }
 
-    public User getUser (String email) {
-        return userDao.getUser(email);
+    public User getUser(User user) {
+        if (userDao.checkUser(user) != null) {
+            return userDao.getUser(user.getEmail());
+        } else {
+            return null;
+        }
     }
 
-    public boolean deleteUser (User user) {
+    public boolean deleteUser(User user) {
         return userDao.deleteUser(user);
     }
 
-    public boolean updateUser (User user) {
+    public boolean updateUser(User user) {
         return userDao.updateUser(user);
     }
 
-    public Long checkUser (User user) {
+    public Long checkUser(User user) {
         return userDao.checkUser(user);
     }
 }

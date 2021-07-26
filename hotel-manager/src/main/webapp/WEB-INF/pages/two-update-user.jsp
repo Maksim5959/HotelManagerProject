@@ -1,4 +1,3 @@
-
 <%--
   Created by IntelliJ IDEA.
   User: Dell
@@ -17,13 +16,13 @@
 <form modelAttribute="userJSP" action="${pageContext.request.contextPath}/add-update-user" method="post">
 
 
-    <input  type="email"  placeholder="Email" oninput="this.className = ''" name="email"/>
-    <input  type="text"  placeholder="Login" oninput="this.className = ''" name="login"/>
-    <input  type="password"  placeholder="Password" oninput="this.className = ''" name="password"/>
-    <input  type="text"  placeholder="First name" oninput="this.className = ''" name="firstName"/>
-    <input  type="text"  placeholder="Last name" oninput="this.className = ''" name="lastName"/>
+    <input type="email" placeholder="Email" oninput="this.className = ''" name="email"/>
+    <input type="text" placeholder="Login" oninput="this.className = ''" name="login"/>
+    <input type="password" placeholder="Password" oninput="this.className = ''" name="password"/>
+    <input type="text" placeholder="First name" oninput="this.className = ''" name="firstName"/>
+    <input type="text" placeholder="Last name" oninput="this.className = ''" name="lastName"/>
 
-<button >Редактировать</button>
+    <button>Редактировать</button>
 </form>
 </body>
 </html>
