@@ -1,0 +1,192 @@
+body {
+    display: block;
+    overflow-x: hidden;
+    background-color: #FFFAFA;
+
+}
+
+nav {
+    background-color: #69c6ba;
+}
+
+button {
+    margin-bottom: 15px;
+    margin-left: 10px;
+    border-radius: 3px !important;
+
+}
+
+
+.date-in {
+
+    margin-left: 6px;
+}
+
+.date-out {
+
+    margin-left: 277px;
+}
+
+
+.count-adult {
+    margin-left: 5px;
+}
+
+.count-children {
+    margin-left: 78px;
+}
+
+.count-rooms {
+    margin-left: 106px;
+}
+
+.btn-outline-info {
+    color: black;
+    border-color: #69c6ba;
+    margin-left: 248px;
+    margin-top: 13px;
+    width: 33.2%;
+    font-weight: 500;
+}
+
+.con-two {
+    margin-top: 144px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+
+
+}
+
+.in-one {
+    margin-top: 0px;
+
+    width: 100%;
+}
+
+.text-one {
+    margin-top: 79px;
+    margin-left: 2px;
+
+}
+
+
+.in-two {
+    margin-top: 0px;
+
+    width: 100%;
+}
+
+.in-tree {
+    margin-top: 0px;
+
+    width: 100%;
+}
+
+.img-back {
+    margin-left: 13px;
+    margin-bottom: 6px;
+}
+
+
+.img-back2 {
+    margin-left: -386px;
+    margin-bottom: 8px;
+}
+
+
+.btn-outline-light:hover,
+.btn-outline-light:focus,
+.btn-outline-light:visited {
+    background-color: #69c6ba;
+
+
+}
+
+
+.btn-secondary:hover,
+.btn-secondary:focus,
+.btn-secondary:visited {
+    background-color: #69c6ba;
+
+
+}
+
+.btn-secondary {
+    color: black;
+    background-color: #69c6ba;
+    border-color: #ffffff;
+    font-weight: 800;
+    margin-right: 10px;
+}
+
+
+.navbar-brand {
+
+    text-transform: uppercase;
+    margin-top: 5px;
+    font-size: 24px;
+    font-weight: 900;
+
+}
+
+.text-top {
+    margin-bottom: 5px;
+
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+}
+
+
+.btn-outline-info:hover,
+.btn-outline-info:focus,
+.btn-outline-info:visited {
+    background-color: #69c6ba;
+
+    font-weight: 200;
+
+}
+
+
+.img-back3 {
+    margin-left: -159px;
+    margin-bottom: -529px;
+}
+
+.img-back4 {
+    margin-left: 737px;
+    margin-bottom: -529px;
+}
+
+.user-icon {
+    margin-top: -3px;
+}
+
+.menu-icon {
+    margin-left: 2px;
+    margin-bottom: 8px;
+}
+
+.dropdown-menu.show {
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 8px;
+}
+
+.text-us-menu {
+    margin-bottom: 9px;
+    margin-left: 13px;
+}
+
